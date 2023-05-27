@@ -4,6 +4,7 @@ resource "aws_instance" "backend" {
   associate_public_ip_address = true
   availability_zone = var.azs[0]
   subnet_id = aws_subnet.public_subnet.id
+  vpc_security_group_ids = [aws_security_group.webapp_sg.id]
 
   tags = {
     Name = "${var.vpc_name}-${var.backend_instance_name}"
