@@ -5,7 +5,8 @@ resource "aws_instance" "backend" {
   availability_zone = var.azs[0]
   subnet_id = aws_subnet.public_subnet.id
   vpc_security_group_ids = [aws_security_group.webapp_sg.id]
-  key_name = aws_key_pair.deployer.key_name 
+  key_name = aws_key_pair.deployer.key_name
+  iam_instance_profile = "${aws_iam_instance_profile.ec2_profile.name}"
   tags = {
     Name = "${var.vpc_name}-${var.backend_instance_name}"
     Env= local.common_tags["Env"]
