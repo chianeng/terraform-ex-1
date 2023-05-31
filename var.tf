@@ -58,3 +58,23 @@ variable team {
   default     = "alpha"
   description = "locals vars"
 }
+
+
+variable "aws_region" {
+    default = "us-east-1"
+    type = string
+    description = "Enter the region of the infrastructure"
+}
+
+variable "aws_profile" {
+    default = "default"
+    type = string
+    description = "aws account profile"
+}
+
+variable "bucket_name" {
+    type = string
+    default = "may-assignement-bucket01"
+    description = "bucket name"
+  
+}
