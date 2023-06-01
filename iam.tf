@@ -1,6 +1,6 @@
 #Create an IAM User
 resource "aws_iam_user" "iam_user" {
-  name = "${var.vpc_name}-chinedu"
+  name = "${var.vpc_name}-backend"
 }
 
 #Access Key
