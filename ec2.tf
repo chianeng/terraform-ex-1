@@ -1,3 +1,10 @@
+data "template_file" "web_frontend" {
+  template = "${file("tomcat.sh")}"  
+}
+
+
+
+
 resource "aws_instance" "backend" {
   ami           = var.backend_ami
   instance_type = var.backend_instance_type
@@ -7,6 +14,7 @@ resource "aws_instance" "backend" {
   vpc_security_group_ids = [aws_security_group.webapp_sg.id]
   key_name = aws_key_pair.deployer.key_name
   iam_instance_profile = "${aws_iam_instance_profile.ec2_profile.name}"
+  user_data = data.template_file.web_frontend.rendered
   tags = {
     Name = "${var.vpc_name}-${var.backend_instance_name}"
     Env= local.common_tags["Env"]
