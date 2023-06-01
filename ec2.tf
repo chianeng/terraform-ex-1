@@ -13,6 +13,7 @@ resource "aws_instance" "backend" {
     Team= local.common_tags["Team"]
   }
 }
+
 resource "aws_key_pair" "deployer" {
   key_name   = "backend-key"
   public_key = tls_private_key.private_key.public_key_openssh
