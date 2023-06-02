@@ -1,10 +1,10 @@
 # -----------creation of an s3 bucket-------------
 resource "aws_s3_bucket" "assignment-bucket" {
   bucket = var.bucket_name
-
   tags = {
-    Name        = "assignment-bucket"
-    Environment = "Dev"
+    Name = "${var.vpc_name}-${var.backend_instance_name}"
+    Env= local.common_tags["Env"]
+    Team= local.common_tags["Team"]
   }
 }
 
