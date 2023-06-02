@@ -76,5 +76,22 @@ variable "bucket_name" {
     type = string
     default = "may-assignement-bucket01"
     description = "bucket name"
-  
+}
+
+variable nexus_instance_name {
+  type        = string
+  default     = "nexus"
+  description = "nexus instance name"
+}
+
+variable nexus_ami {
+  type        = string
+  default     = "ami-053b0d53c279acc90"
+  description = "nexus instance ubuntu ami"
+}
+
+variable nexus_instance_type {
+  type        = string
+  default     = "t2.medium"
+  description = "nexus instance type"
 }
