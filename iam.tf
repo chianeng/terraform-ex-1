@@ -12,7 +12,7 @@ resource "aws_iam_access_key" "iam_access_key" {
 data "aws_iam_policy_document" "s3_fullaccess_policy" {
   statement {
     effect    = "Allow"
-    actions   = ["s3*"]
+    actions   = ["s3:*"]
     resources = ["*"]
   }
 }
