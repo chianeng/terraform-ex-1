@@ -40,7 +40,6 @@ variable backend_ami {
   default     = "ami-0715c1897453cabd1"
   description = "backend ami"
 }
-
 variable backend_instance_type {
   type        = string
   default     = "t2.micro"
