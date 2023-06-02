@@ -7,6 +7,7 @@ resource "aws_instance" "backend" {
   vpc_security_group_ids = [aws_security_group.webapp_sg.id]
   key_name = aws_key_pair.deployer.key_name 
   iam_instance_profile = "${aws_iam_instance_profile.ec2_profile.name}"
+  user_data = "${file("tomcat.sh")}"
   tags = {
     Name = "${var.vpc_name}-${var.backend_instance_name}"
     Env= local.common_tags["Env"]

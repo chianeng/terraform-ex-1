@@ -37,7 +37,7 @@ variable backend_instance_name {
 
 variable backend_ami {
   type        = string
-  default     = "ami-0715c1897453cabd1"
+  default     = "ami-026ebd4cfe2c043b2"
   description = "backend ami"
 }
 variable backend_instance_type {

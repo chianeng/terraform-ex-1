@@ -5,7 +5,7 @@ locals {
     Team = var.team
  }
 
- inbound_rules = [22,80,3000,443,8081]
+ inbound_rules = [22,80,3000,443,8081,8080]
 
 }
 
