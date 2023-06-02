@@ -8,7 +8,6 @@ resource "aws_vpc" "webapp_vpc" {
     Team= local.common_tags["Team"]
   }
 }
-
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.webapp_vpc.id
 
