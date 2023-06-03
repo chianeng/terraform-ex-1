@@ -38,6 +38,7 @@ resource "aws_iam_role_policy" "ec2_policy" {
   })
 }
 
+
 # Instance profile
 resource "aws_iam_instance_profile" "ec2_profile" {
   name = "dev_ec2_role_profile"
