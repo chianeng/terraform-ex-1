@@ -3,9 +3,7 @@ resource "aws_vpc" "webapp_vpc" {
   instance_tenancy = "default"
   enable_dns_hostnames = true
   tags = {
-    Name = "${var.vpc_name}"
-    Env= local.common_tags["Env"]
-    Team= local.common_tags["Team"]
+    Name = "${local.common_tags["Env"]}-${local.common_tags["Team"]}"
   }
 }
 resource "aws_internet_gateway" "igw" {

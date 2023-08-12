@@ -1,4 +1,9 @@
 terraform {
+    backend "s3" {
+    bucket = "infra-statefile-primuslearning"
+    key    = "terraform.tfvars"
+    region = "REGION"
+  }
   required_providers {
     aws = {
       source = "hashicorp/aws"
@@ -12,6 +17,6 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-east-1"
+  region = "REGION"
 }
 
