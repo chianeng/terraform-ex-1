@@ -24,7 +24,7 @@ variable private_cidr {
 
 variable azs {
   type        = list
-  default     = ["REGIONa","REGIONb"]
+  default     = ["us-east-1a","us-east-1b"]
   description = "availability zones"
 }
 

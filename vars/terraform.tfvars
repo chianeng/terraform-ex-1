@@ -7,3 +7,4 @@ public_cidr = PUBLIC
 private_cidr = PRIVATE
 aws_region = "REGION"
 bucket_name = "BUCKET"
+azs = AZS
