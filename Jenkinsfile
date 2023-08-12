@@ -60,7 +60,7 @@ void setParams(){
     sh"sed -i 's#PUBLIC#${params.public_cidr}#g' $WORKSPACE/vars/terraform.tfvars"
     sh"sed -i 's#PRIVATE#${params.private_cidr}#g' $WORKSPACE/vars/terraform.tfvars"
     sh"sed -i 's#AZS#${params.azs}#g' $WORKSPACE/vars/terraform.tfvars"
-    sh"sed -i 's/BUCKET/${params.desired}/g' $WORKSPACE/vars/terraform.tfvars"
+    sh"sed -i 's/BUCKET/${params.bucket}/g' $WORKSPACE/vars/terraform.tfvars"
     sh"sed -i 's/REGION/${params.region}/g' $WORKSPACE/provider.tf"
     sh"cat $WORKSPACE/vars/terraform.tfvars"
 }
