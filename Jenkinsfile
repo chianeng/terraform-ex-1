@@ -1,5 +1,5 @@
 pipeline{
-    agent { label 'dynamic-agents' }
+    agent any
     parameters{
         choice(name: 'action', choices: ['build', 'destroy'], description: 'Build Or Destroy Infrastructure')
         string(name: 'environment', defaultValue: 'default', description: 'Environment name')
