@@ -15,34 +15,35 @@ pipeline{
         string(name: 'bucket', defaultValue: '', description: 'bucket name')
     }
     stages{
-        stage("init build params"){
-            steps{
-                script{
-                    functions.setParams()
-                }
-            }   
-        }
-
-        stage("Build Infrastructure"){
-            when { equals expected: 'build', actual: params.action }
-            steps{
-                script{
-                    withAWS([credentials:"${params.creds}",region: "${params.region}"]){
-                        functions.terraformInit()
-                        functions.terraformPlan()
-                        functions.terraformApply()
+            stage("init build params"){
+                steps{
+                    script{
+                        functions.setParams()
+                    }
+                }   
+            }
+    
+            stage("Build Infrastructure"){
+                when { equals expected: 'build', actual: params.action }
+                steps{
+                    script{
+                        withAWS([credentials:"${params.creds}",region: "${params.region}"]){
+                            functions.terraformInit()
+                            functions.terraformPlan()
+                            functions.terraformApply()
+                        }
                     }
                 }
             }
-        }
-        stage("Destroy Infrastructure"){
-            when { equals expected: 'destroy', actual: params.action }
-            steps{
-                script{
-                    withAWS([credentials:"${params.creds}",region: "${params.region}"]){
-                        functions.terraformInit()
-                        functions.terraformPlan()
-                        functions.terraformDestroy()   
+            stage("Destroy Infrastructure"){
+                when { equals expected: 'destroy', actual: params.action }
+                steps{
+                    script{
+                        withAWS([credentials:"${params.creds}",region: "${params.region}"]){
+                            functions.terraformInit()
+                            functions.terraformPlan()
+                            functions.terraformDestroy()   
+                    }
                 }
             }
         }
